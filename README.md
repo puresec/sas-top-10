@@ -1,4 +1,4 @@
-# The Ten Most Critical Risks for Serverless Applications
+# The Ten Most Critical Risks for Serverless Applications v1.0
 
 ## Preface
 The “Serverless architectures Security Top 10” document is meant to serve as a security awareness and education guide. The document is curated and maintained by top industry practitioners and security researchers with vast experience in application security, cloud and serverless architectures. 
