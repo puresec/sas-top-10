@@ -271,7 +271,7 @@ One of the key aspects of serverless architectures is the fact that they reside 
 
 While many serverless architecture vendors provide extremely capable logging facilities, these logs in their basic/out-of-the-box configuration, are not always suitable for the purpose of providing a full security event audit trail. In order to achieve adequate real-time security event monitoring with proper audit trail, serverless developers and their DevOps teams are required to stitch together logging logic that will fit their organizational needs, for example:
 Collect real time logs from the different serverless functions and cloud services
-Push these logs to a remote security information and event management (SIEM) system. This will often require the logs to stored first in an intermediary cloud storage service.
+Push these logs to a remote security information and event management (SIEM) system. This will often require the logs to be stored first in an intermediary cloud storage service.
 
 The SANS six categories of critical log information paper ([link](https://www.sans.edu/cyber-research/security-laboratory/article/6toplogs)), recommends that the following log reports be collected:
 - Authentication and authorization reports
