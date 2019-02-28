@@ -239,7 +239,7 @@ While the function only puts items into the database, the developer made a mista
     - 'arn:aws:dynamodb:us-east-1:****************:table/TABLE_NAME'
 ```
 
-The approporiate, least-privileged role, should have been:
+The appropriate, least-privileged role, should have been:
 ```yaml
 - Effect: Allow
   Action:
