@@ -29,7 +29,7 @@ The comfort and elegance of serverless architectures is not without its drawback
 
 - **Increased attack surface**: serverless functions consume data from a wide range of event sources such as HTTP APIs, message queues, cloud storage, IoT device communications and so forth. This increases the attack surface dramatically, especially when such messages use protocols and complex message structures - many of which cannot be inspected by standard application layer protections such as Web application firewalls
 - **Attack surface complexity**: the attack surface in serverless architectures can be difficult for some to understand given that such architectures are still rather new. Many software developers and architects have yet to gain enough experience with the security risks and appropriate security protections required to secure such applications 
-Overall system complexity: visualizing and monitoring serverless architectures is still more complex than standard software environments
+- **Overall system complexity**: visualizing and monitoring serverless architectures is still more complex than standard software environments
 - **Inadequate security testing**: performing security testing for serverless architectures is more complex than testing standard applications, especially when such applications interact with remote 3rd party services or with back-end cloud services such as NoSQL databases, cloud storage, or stream processing services. In addition, automated scanning tools are currently not adapted to scanning serverless applications:
   - **DAST (dynamic application security testing)** tools will only provide testing coverage for HTTP interfaces. This poses a problem when testing serverless applications that consume input from non-HTTP sources, or interact with back-end cloud services. In addition, many DAST tools have issues to effectively test web services (e.g. RESTful services) which don’t follow the classic HTML/HTTP request/response model and request format.
   - **SAST (static application security testing)** tools rely on data flow analysis, control flow and semantic analysis to detect vulnerabilities in software. Since serverless applications contain multiple distinct functions that are stitched together using event triggers and cloud services (e.g. message queues, cloud storage or NoSQL databases), statically analyzing data flow in such scenarios is highly prone to false positives. In addition, SAST tools will also suffer from false negatives, since source/sink rules in many tools do not take into account FaaS constructs. These rule sets will need to evolve in order to provide proper support for serverless applications.
@@ -239,7 +239,7 @@ While the function only puts items into the database, the developer made a mista
     - 'arn:aws:dynamodb:us-east-1:****************:table/TABLE_NAME'
 ```
 
-The approporiate, least-privileged role, should have been:
+The appropriate, least-privileged role, should have been:
 ```yaml
 - Effect: Allow
   Action:
@@ -271,7 +271,7 @@ One of the key aspects of serverless architectures is the fact that they reside 
 
 While many serverless architecture vendors provide extremely capable logging facilities, these logs in their basic/out-of-the-box configuration, are not always suitable for the purpose of providing a full security event audit trail. In order to achieve adequate real-time security event monitoring with proper audit trail, serverless developers and their DevOps teams are required to stitch together logging logic that will fit their organizational needs, for example:
 Collect real time logs from the different serverless functions and cloud services
-Push these logs to a remote security information and event management (SIEM) system. This will oftentimes require to first store the logs in an intermediary cloud storage service
+Push these logs to a remote security information and event management (SIEM) system. This will often require the logs to be stored first in an intermediary cloud storage service.
 
 The SANS six categories of critical log information paper ([link](https://www.sans.edu/cyber-research/security-laboratory/article/6toplogs)), recommends that the following log reports be collected:
 - Authentication and authorization reports
