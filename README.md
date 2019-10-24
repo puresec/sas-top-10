@@ -44,8 +44,8 @@ The data and research for this document is based on the following data sources:
 - Automated source code scanning of serverless projects using proprietary algorithms developed by PureSec
 - Data provided by our partners
 - Data and insights provided by individual contributors and industry practitioners
-For ease of reference, each category of the Top 10 document will be marked with a unique identifier in the form of SAS-{NUM}. 
 
+For ease of reference, each category of the Top 10 document will be marked with a unique identifier in the form of SAS-{NUM}. 
 The list is organized in order of criticality from SAS-1…10, where SAS-1 indicates the most critical risk, and SAS-10 the least critical risk.
 
 - **SAS-1**: Function Event Data Injection
@@ -173,14 +173,13 @@ If you are building an IoT ecosystem that uses Pub/Sub messaging for telemetry d
 In addition, organizations should use continuous security health check facilities that are provided by their serverless cloud provider, to monitor correct permissions and assess them against their corporate security policy:
 
 - Organizations that use AWS infrastructure should use AWS Config Rules to continuously monitor and assess their environment against corporate security policy and best practices. Use AWS Config Rules for:
-- Discover newly deployed AWS Lambda functions
-- Receive notifications on changes made to existing AWS Lambda functions
-- Assess permissions and roles (IAM) assigned to AWS Lambda functions
-- Discover newly deployed AWS S3 buckets or changes in security policy made to existing buckets
-- Receive notifications on unencrypted storage
-- Receive notifications on AWS S3 buckets with public read access
-
-Microsoft Azure provides similar capabilities through its security health monitoring facility, which is available in Azure Security Center.
+  - Discover newly deployed AWS Lambda functions
+  - Receive notifications on changes made to existing AWS Lambda functions
+  - Assess permissions and roles (IAM) assigned to AWS Lambda functions
+  - Discover newly deployed AWS S3 buckets or changes in security policy made to existing buckets
+  - Receive notifications on unencrypted storage
+  - Receive notifications on AWS S3 buckets with public read access
+- Microsoft Azure provides similar capabilities through its security health monitoring facility, which is available in Azure Security Center.
 
 ### SAS-3: Insecure Serverless Deployment Configuration
 Cloud services in general, and serverless architectures in particular offer many customizations and configuration settings in order to adapt them for each specific need, task or surrounding environment. Some of these configuration settings have critical implications on the overall security posture of the application and should be given attention. The default settings provided by serverless architecture vendors might not always be suitable for your needs. 
@@ -195,8 +194,8 @@ In recent years, we have [witnessed](https://digitalguardian.com/blog/data-breac
 |DIFFERENTIATING FACTOR|TRADITIONAL APPLICATIONS|SERVERLESS APPLICATIONS|
 |----------------------|------------------------|-----------------------|
 |Number of Internet-facing services requiring robust deployment configurations|Limited number of internet facing interfaces that require secure deployment configuration|Each cloud service and serverless function requires its own secure deployment configuration|
-Best Practices for applying robust deployment configurations|Well known and thoroughly understood, especially for mainstream development frameworks|Vendor documentation and best practices exist. Industry standards and public guides on how to secure serverless environments is scarce|
-Automated tools for detecting insecure configurations|Plenty of open source and commercial scanners will pinpoint insecure deployment configurations|Limited set of tools for scanning and building secure serverless applications and deploying them securely|
+|Best Practices for applying robust deployment configurations|Well known and thoroughly understood, especially for mainstream development frameworks|Vendor documentation and best practices exist. Industry standards and public guides on how to secure serverless environments is scarce|
+|Automated tools for detecting insecure configurations|Plenty of open source and commercial scanners will pinpoint insecure deployment configurations|Limited set of tools for scanning and building secure serverless applications and deploying them securely|
 
 #### MITIGATION
 In order to avoid sensitive data leakage from cloud storage infrastructure, many vendors now offer hardened cloud storage configurations, multi-factor authentication and encryption of data in transit and at rest. Organizations which make use of cloud storage, should get familiar with the available storage security controls provided by their cloud vendor. 
@@ -322,9 +321,9 @@ In the general case, a serverless function should be a small piece of code that 
 Keep in mind that even the most secure serverless function can become vulnerable when importing code from a vulnerable 3rd party dependency.  
 
 In recent years, many white papers and surveys were published on the topic of insecure 3rd party packages. A quick search in the [MITRE CVE](https://cve.mitre.org/) (Common Vulnerabilities and Exposures) database or similar projects demonstrates just how prevalent are vulnerabilities in packages and modules which are often used when developing serverless functions. For example:
-Known vulnerabilities in Node.js modules ([link](https://nodesecurity.io/advisories))
-Known vulnerabilities in Java technologies  ([link](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=java))
-Known vulnerabilities in Python related technologies ([link](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=python))
+- Known vulnerabilities in Node.js modules ([link](https://nodesecurity.io/advisories))
+- Known vulnerabilities in Java technologies  ([link](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=java))
+- Known vulnerabilities in Python related technologies ([link](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=python))
 
 The [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) project also includes a section on the use of components with known vulnerabilities.
 
@@ -345,6 +344,7 @@ As applications grow in size and complexity, there is a need to store and mainta
 - Database credentials
 - Encryption keys
 - Sensitive configuration settings
+
 One of the most frequently recurring mistakes related to application secrets storage, is to simply store these secrets in a plain text configuration file, which is a part of the software project. In such cases, any user with “read” permissions on the project can get access to these secrets. The situation gets much worse, if the project is stored on a public repository.
 
 Another common mistake is to store these secrets in plain text, as environment variables. While environment variables are a useful way to persist data across serverless function executions, in some cases, such environment variables can leak and reach the wrong hands.
@@ -364,12 +364,12 @@ If you decide to persist secrets in environment variables, make sure that data i
 
 Here are several reference links:
 - AWS Secrets Manager ([link](https://aws.amazon.com/secrets-manager/))
-- Storing and Retrieving a Secret (AWS Tutorial) [link](https://docs.aws.amazon.com/secretsmanager/latest/userguide/tutorials_basic.html)
+- Storing and Retrieving a Secret (AWS Tutorial) ([link](https://docs.aws.amazon.com/secretsmanager/latest/userguide/tutorials_basic.html))
 - Storing Lambda function encrypted secrets using environment variables and KMS ([link](http://docs.aws.amazon.com/lambda/latest/dg/tutorial-env_console.html))
 - Serverless secrets storage project on GitHub ([link](https://github.com/trek10inc/serverless-secrets))
 - Azure Key Vault ([link](https://docs.microsoft.com/en-us/azure/key-vault/))
 - Working with Azure Key Vault in Azure Functions ([link](https://jan-v.nl/post/working-with-azure-key-vault-in-azure-functions))
-- Storing Secrets with Google Cloud KMS [link](https://cloud.google.com/kms/docs/secret-management)
+- Storing Secrets with Google Cloud KMS ([link](https://cloud.google.com/kms/docs/secret-management))
 
 ### SAS-8: Denial of Service & Financial Resource Exhaustion
 During the past decade, we have seen a dramatic increase in the frequency and volume of Denial of Service (DoS) attacks. Such attacks became one of the primary risks facing almost every company exposed to the Internet. 
@@ -445,8 +445,8 @@ Depending on the type of limit and activity, poorly designed or configured appli
 |DIFFERENTIATING FACTOR|TRADITIONAL APPLICATIONS|SERVERLESS APPLICATIONS|
 |----------------------|------------------------|-----------------------|
 |Automatic scalability|Scalability is cumbersome and requires careful pre-planning|Serverless environments are provisioned automatically, on-demand. This means they can withstand high bandwidth attacks without any downtime|
-Execution limits|Standard network, disk and memory limits|In order to avoid excessive billing or to inflict damage on other tenants sharing the infrastructure, serverless applications use execution limits. Attackers may attempt to hit these limits and saturate the system|
-IP address depletion|N/A|When running AWS Lambda in VPCs, organizations should make sure they have enough IP addresses in the VPC subnet|
+|Execution limits|Standard network, disk and memory limits|In order to avoid excessive billing or to inflict damage on other tenants sharing the infrastructure, serverless applications use execution limits. Attackers may attempt to hit these limits and saturate the system|
+|IP address depletion|N/A|When running AWS Lambda in VPCs, organizations should make sure they have enough IP addresses in the VPC subnet|
 
 #### MITIGATION
 There are several mitigations and best practices approaches for dealing with Denial of Service and Denial of Wallet attacks against serverless architectures. For example:
@@ -484,8 +484,6 @@ The following image presents a schematic workflow of the application described a
 This system design assumes that functions and events are invoked in the desired order – however, a malicious user might be able to manipulate the system in a couple of ways:
 
 1. If the cloud storage bucket does not enforce proper access controls, any user might be able to upload files directly into the bucket, bypassing the size sanity check, which is only enforced in Step 3. A malicious user might upload numerous huge files, essentially consuming all available system resources as defined by the system’s quota
-
-
 2. If the Pub/Sub messaging system does not enforce proper access controls on the relevant topic, any user might be able to publish numerous “file uploaded” messages, forcing the system to continuously execute the cryptographic file hashing function until all system resources are consumed 
 
 In both cases, an attacker might consume system resources until the defined quota is met, and then deny service from other system users. Another possible outcome can be a painful inflated monthly bill from the serverless architecture cloud vendor (also known as “Financial Resource Exhaustion”).
